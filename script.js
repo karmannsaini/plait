@@ -1,6 +1,6 @@
 const searchButton = document.getElementById('searchButton');
 const ingredientList = document.getElementById('ingredients');
-const mySpoonacularApiKey = 
+
 
 searchButton.addEventListener('click', function() {
 
