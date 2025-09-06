@@ -10,7 +10,7 @@ searchButton.addEventListener('click', async function(event) {
         return ingredient.trim();
     });
 
-    const response = await fetch('https://plait.onrender.com/', {
+    const response = await fetch('https://plait.onrender.com', {
         method: 'POST',
         body: JSON.stringify({
             ingredients: formattedIngredients
