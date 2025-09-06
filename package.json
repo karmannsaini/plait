@@ -2,7 +2,7 @@
   "name": "plait",
   "version": "1.0.0",
   "description": "A simple recipe finder that uses your inputted ingredients to generate recipes.",
-  "main": "script.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
