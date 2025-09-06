@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const path = require('path');
 const express = require('express');
 const app = express();
 const port = 3000;
@@ -20,4 +21,8 @@ app.post('/api/recipes', async (request, response) => { // Fix 2 & 4: Corrected 
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
+});
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
