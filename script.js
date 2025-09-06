@@ -2,17 +2,24 @@ const searchButton = document.getElementById('searchButton');
 const ingredientList = document.getElementById('ingredients');
 
 
-searchButton.addEventListener('click', function() {
+searchButton.addEventListener('click', async function() {
 
     const ingredients = ingredientList.value;
     
-    console.log(ingredients);
+    const sepIngredients = ingredients.split(",")
+
+    const formattedIngredients = sepIngredients.map(ingredient => {return ingredient.trim()})
+
+    const response = await fetch('http://localhost:3000/api/recipes', {
+        method: 'POST',
+        body: JSON.stringify({ingredients: formattedIngredients}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    const recipes = await response.json()
+
+    const recipeHTML = recipes.map(recipe => {return recipe.title})
+
 });
-
-const sepIngredients = ingredients.split(",")
-
-const formattedIngredients = sepIngredients.map(ingredient => {return ingredient.trim()})
-
-const apiCall = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${formattedIngredients}`&apiKey=number=2;
-
-//https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
